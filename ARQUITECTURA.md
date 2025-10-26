@@ -41,26 +41,26 @@
 ## Modelo de Dominio
 
 ```
-                    ┌──────────────────┐
-                    │    Usuario       │
-                    │   (abstract)     │
-                    ├──────────────────┤
-                    │ - dni: String    │
-                    │ - apellido: Str  │
-                    │ - nombre: String │
-                    │ - userName: Str  │
-                    │ - password: Str  │
-                    └────────┬─────────┘
+                    ┌──────────────────────┐
+                    │    Usuario           │
+                    │   (abstract)         │
+                    ├──────────────────────┤
+                    │ - dni: String        │
+                    │ - apellido: String   │
+                    │ - nombre: String     │
+                    │ - userName: String   │
+                    │ - password: String   │
+                    └────────┬─────────────┘
                              │
               ┌──────────────┼──────────────┐
               │              │              │
               ▼              ▼              ▼
-      ┌─────────────┐ ┌──────────┐ ┌──────────────┐
-      │  Paciente   │ │  Medico  │ │Administrativo│
-      │             │ │          │ │              │
-      │             │ │+ disponib│ │              │
-      │             │ │+ especial│ │              │
-      └─────────────┘ └────┬─────┘ └──────────────┘
+      ┌─────────────┐ ┌──────────────────┐ ┌──────────────┐
+      │  Paciente   │ │  Medico          │ │Administrativo│
+      │             │ │                  │ │              │
+      │             │ │+ disponibilidad  │ │              │
+      │             │ │+ especialidad    │ │              │
+      └─────────────┘ └────┬─────────────┘ └──────────────┘
                            │
                            │ usa
                            │
