@@ -183,4 +183,34 @@ class GestionTurnoTest {
         gestionTurno.agregarTurno(new Turno(medico2, paciente2, fecha2));
         assertEquals(2, gestionTurno.cantidadTurnos());
     }
+
+    @Test
+    void testGetTurnosPorMedicoNulo() {
+        List<Turno> turnos = gestionTurno.getTurnosPorMedico(null);
+        assertNotNull(turnos);
+        assertEquals(0, turnos.size());
+    }
+
+    @Test
+    void testGetTurnosPorPacienteNulo() {
+        List<Turno> turnos = gestionTurno.getTurnosPorPaciente(null);
+        assertNotNull(turnos);
+        assertEquals(0, turnos.size());
+    }
+
+    @Test
+    void testGetTurnosPorRangoFechaNulos() {
+        List<Turno> turnos = gestionTurno.getTurnosPorRangoFecha(null, null);
+        assertNotNull(turnos);
+        assertEquals(0, turnos.size());
+        
+        LocalDateTime fecha = LocalDateTime.of(2024, 10, 26, 10, 30);
+        turnos = gestionTurno.getTurnosPorRangoFecha(fecha, null);
+        assertNotNull(turnos);
+        assertEquals(0, turnos.size());
+        
+        turnos = gestionTurno.getTurnosPorRangoFecha(null, fecha);
+        assertNotNull(turnos);
+        assertEquals(0, turnos.size());
+    }
 }

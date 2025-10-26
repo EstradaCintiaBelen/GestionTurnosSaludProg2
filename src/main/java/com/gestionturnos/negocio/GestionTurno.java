@@ -68,6 +68,9 @@ public class GestionTurno {
      * Obtiene los turnos de un médico específico
      */
     public List<Turno> getTurnosPorMedico(Medico medico) {
+        if (medico == null) {
+            return new ArrayList<>();
+        }
         return turnos.stream()
                 .filter(t -> t.getMedico().equals(medico))
                 .collect(Collectors.toList());
@@ -77,6 +80,9 @@ public class GestionTurno {
      * Obtiene los turnos de un paciente específico
      */
     public List<Turno> getTurnosPorPaciente(Paciente paciente) {
+        if (paciente == null) {
+            return new ArrayList<>();
+        }
         return turnos.stream()
                 .filter(t -> t.getPaciente().equals(paciente))
                 .collect(Collectors.toList());
@@ -86,6 +92,9 @@ public class GestionTurno {
      * Obtiene los turnos en un rango de fechas
      */
     public List<Turno> getTurnosPorRangoFecha(LocalDateTime inicio, LocalDateTime fin) {
+        if (inicio == null || fin == null) {
+            return new ArrayList<>();
+        }
         return turnos.stream()
                 .filter(t -> !t.getFechaYHora().isBefore(inicio) && !t.getFechaYHora().isAfter(fin))
                 .collect(Collectors.toList());
